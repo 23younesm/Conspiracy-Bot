@@ -1,0 +1,15 @@
+[Unit]
+Description=Conspiracy Bot and Leaderboard Service
+After=network.target
+
+[Service]
+Type=simple
+User=myounes
+WorkingDirectory=/home/myounes/discord-bot/discord-bot
+ExecStart=/home/myounes/discord-bot/discord-bot/start.sh
+Restart=on-failure
+RestartSec=5s
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

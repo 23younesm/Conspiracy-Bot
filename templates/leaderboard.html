@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>THE CONSPIRACY LEADERBOARD</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 5px #00ff00;
+        }
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px #00ff00;
+        }
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #00ff00;
+            text-align: center;
+        }
+        th {
+            background-color: #003300;
+        }
+        tr:nth-child(even) {
+            background-color: #002200;
+        }
+        tr:hover {
+            background-color: #004400;
+        }
+        caption {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>THE CONSPIRACY LEADERBOARD</h1>
+    <table>
+        <caption>Top Hunters</caption>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>User ID</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entry in leaderboard %}
+            <tr>
+                <td>{{ loop.index }}</td> <!-- 1-based rank -->
+                <td>{{ entry.user_id }}</td>
+                <td>{{ entry.points }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">No entries yet.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
